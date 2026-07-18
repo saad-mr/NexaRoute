@@ -1,0 +1,5 @@
+1784404040	Admin	admin	service_start	1	Authentication service initialized
+1784404135	Admin	admin	service_start	1	Authentication service initialized
+1784404315	Rider	RD-101	register	1	Rider credential created
+1784404315	Rider	RD-101	login	1	Session issued
+1784404431	Admin	admin	login	1	Session issued

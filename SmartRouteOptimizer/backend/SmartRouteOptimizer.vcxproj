@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{74D3EE50-6701-4EE8-8A99-80BE032799A8}</ProjectGuid>
+    <RootNamespace>SmartRouteOptimizer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)build\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>SmartRouteOptimizer</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Ws2_32.lib;Shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Ws2_32.lib;Shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AVLTree.h" />
+    <ClInclude Include="include\AnalyticsService.h" />
+    <ClInclude Include="include\AuthService.h" />
+    <ClInclude Include="include\BinarySearch.h" />
+    <ClInclude Include="include\CircularQueue.h" />
+    <ClInclude Include="include\DeliverySystem.h" />
+    <ClInclude Include="include\DoublyLinkedList.h" />
+    <ClInclude Include="include\DynamicArray.h" />
+    <ClInclude Include="include\Graph.h" />
+    <ClInclude Include="include\HashTable.h" />
+    <ClInclude Include="include\LocalServer.h" />
+    <ClInclude Include="include\MinHeap.h" />
+    <ClInclude Include="include\NetworkManager.h" />
+    <ClInclude Include="include\Queue.h" />
+    <ClInclude Include="include\RouteEngine.h" />
+    <ClInclude Include="include\SinglyLinkedList.h" />
+    <ClInclude Include="include\Stack.h" />
+    <ClInclude Include="include\Security.h" />
+    <ClInclude Include="include\Validation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\AnalyticsService.cpp" />
+    <ClCompile Include="src\AuthService.cpp" />
+    <ClCompile Include="src\DeliverySystem.cpp" />
+    <ClCompile Include="src\Graph.cpp" />
+    <ClCompile Include="src\LocalServer.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\NetworkManager.cpp" />
+    <ClCompile Include="src\RouteEngine.cpp" />
+    <ClCompile Include="src\Security.cpp" />
+    <ClCompile Include="src\Validation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\frontend\app.js" />
+    <None Include="..\frontend\index.html" />
+    <None Include="..\frontend\style.css" />
+    <None Include="..\data\locations.csv" />
+    <None Include="..\data\roads.csv" />
+    <None Include="..\data\riders.csv" />
+    <None Include="..\START_HERE.md" />
+    <None Include="..\README.md" />
+    <None Include="..\docs\STEP_01_BLUEPRINT.md" />
+    <None Include="..\docs\STEP_02_VISUAL_STUDIO_FOUNDATION.md" />
+    <None Include="..\docs\STEP_03_ROUTE_ENGINE.md" />
+    <None Include="..\docs\STEP_04_DELIVERY_SYSTEM.md" />
+    <None Include="..\docs\STEP_05_INTERFACE_AND_ADMIN.md" />
+    <None Include="..\docs\STEP_06_TESTING_AND_SETUP.md" />
+    <None Include="..\docs\LANGUAGE_REPORT.md" />
+    <None Include="..\docs\VIVA_GUIDE.md" />
+    <None Include="..\docs\VSCODE_WINDOWS_SETUP.md" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

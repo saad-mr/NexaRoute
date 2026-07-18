@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaRoute | Smart Route Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="#" aria-label="NexaRoute home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48"><path d="M11 34.5 20.5 25l6 5.5L38 15"/><circle cx="11" cy="34.5" r="3"/><circle cx="20.5" cy="25" r="3"/><circle cx="26.5" cy="30.5" r="3"/><circle cx="38" cy="15" r="3"/></svg>
+                </span>
+                <span><strong>Nexa</strong>Route<small>Smart delivery network</small></span>
+            </a>
+
+            <div class="role-switcher" aria-label="Select workspace">
+                <button class="role-button active" type="button" data-role-target="customer"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 21c.5-5 2.7-7 7-7s6.5 2 7 7"/></svg><span>Customer</span></button>
+                <button class="role-button" type="button" data-role-target="rider"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M7 17h5l2-7h4l2 4M9 10h5l-2 7"/></svg><span>Rider</span></button>
+                <button class="role-button" type="button" data-role-target="admin"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.2 8 8 9 4.8-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-5"/></svg><span>Admin</span></button>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <p class="nav-label" data-role-nav="customer">Customer</p>
+                <button class="nav-item active" data-role-nav="customer" data-view="overview">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+                    Overview
+                </button>
+                <button class="nav-item" data-role-nav="customer" data-view="booking">
+                    <svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+                    Book parcel
+                </button>
+                <button class="nav-item" data-role-nav="customer" data-view="tracking">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 4V2m0 20v-2m8-8h2M2 12h2"/></svg>
+                    Live tracking
+                </button>
+                <p class="nav-label" data-role-nav="rider" hidden>Rider workspace</p>
+                <button class="nav-item" data-role-nav="rider" data-view="rider-dashboard" hidden>
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg>
+                    My dashboard
+                </button>
+                <button class="nav-item" data-role-nav="rider" data-view="rider-jobs" hidden>
+                    <svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg>
+                    My deliveries
+                </button>
+                <button class="nav-item" data-role-nav="rider" data-view="rider-logout" hidden>
+                    <svg viewBox="0 0 24 24"><path d="M10 4H5v16h5m4-4 4-4-4-4m4 4H9"/></svg>
+                    Sign out
+                </button>
+
+                <p class="nav-label" data-role-nav="admin" hidden>Administration</p>
+                <button class="nav-item" data-role-nav="admin" data-view="admin-dashboard" hidden>
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+                    Admin overview
+                </button>
+                <button class="nav-item" data-role-nav="admin" data-view="riders" hidden>
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c.4-4 2.1-6 5.5-6s5.1 2 5.5 6M16 10h5m-2.5-2.5v5"/></svg>
+                    Manage riders
+                </button>
+                <button class="nav-item" data-role-nav="admin" data-view="roads" hidden>
+                    <svg viewBox="0 0 24 24"><path d="M7 3 4 21m13-18 3 18M12 5v3m0 4v3m0 4v2"/></svg>
+                    Road control
+                </button>
+
+                <button class="nav-item" data-role-nav="admin" data-view="history" hidden>
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16M6 3h12l1 18H5zM9 10h6m-6 4h6"/></svg>
+                    Delivery history
+                </button>
+                <button class="nav-item" data-role-nav="admin" data-view="reports" hidden>
+                    <svg viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m5 16v-7m5 7V7"/></svg>
+                    Reports
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="server-card">
+                    <span class="server-pulse" id="server-pulse"></span>
+                    <div><strong id="server-label">Connecting</strong><small>Service status</small></div>
+                </div>
+                <div class="profile-card">
+                    <span class="avatar" id="profile-avatar">CU</span>
+                    <div><strong id="profile-name">Customer portal</strong><small id="profile-role">Book and track parcels</small></div>
+                    <button aria-label="Open account menu">•••</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content role-panel" id="customer-panel">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">Customer workspace</p>
+                    <h1>Book and track your delivery</h1>
+                </div>
+                <div class="topbar-actions">
+                    <div class="date-chip">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18"/></svg>
+                        <span id="current-date">Loading date</span>
+                    </div>
+                    <button class="icon-button notification-trigger" id="notification-button" aria-label="Notifications">
+                        <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+                        <span class="notification-count" data-notification-count hidden>0</span>
+                    </button>
+                    <button class="primary-button" id="new-booking-button">
+                        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                        New booking
+                    </button>
+                </div>
+            </header>
+
+            <section class="stats-grid" aria-label="Network statistics">
+                <article class="stat-card stat-blue">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></div>
+                    <div><p>Total bookings</p><strong id="total-bookings">0</strong><span id="booking-summary">Ready for live data</span></div>
+                    <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="stat-card stat-green">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 15h3l2-5 4 9 2-6h5"/><circle cx="12" cy="12" r="9"/></svg></div>
+                    <div><p>Active deliveries</p><strong id="active-deliveries">0</strong><span id="delivery-summary">Network standing by</span></div>
+                    <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="stat-card stat-amber">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c.4-4 2.1-6 5.5-6s5.1 2 5.5 6M16 10h5m-2.5-2.5v5"/></svg></div>
+                    <div><p>Available riders</p><strong id="available-riders">0</strong><span id="rider-summary">Checking fleet</span></div>
+                    <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="stat-card stat-violet">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M7 3 4 21m13-18 3 18M12 5v3m0 4v3m0 4v2"/></svg></div>
+                    <div><p>City roads</p><strong id="road-count">0</strong><span id="road-summary">Loading network</span></div>
+                    <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+            </section>
+
+            <section class="workspace-grid">
+                <article class="map-card">
+                    <div class="card-header">
+                        <div>
+                            <p class="eyebrow">Live network</p>
+                            <h2>Nexa City map</h2>
+                        </div>
+                        <div class="map-controls">
+                            <div class="segmented-control" role="group" aria-label="Map view">
+                                <button class="active">Traffic</button>
+                                <button>Distance</button>
+                            </div>
+                            <button class="icon-button map-refresh" id="refresh-map" aria-label="Refresh map">
+                                <svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M18.3 9A7 7 0 0 0 6 6.5L4 9m2 6a7 7 0 0 0 12 2.5L20 15"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="map-stage">
+                        <svg id="city-map" viewBox="0 0 1200 700" role="img" aria-label="Interactive map of Nexa City">
+                            <defs>
+                                <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#dce5f2" stroke-width="1"/></pattern>
+                                <filter id="route-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                                <filter id="marker-shadow" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0f172a" flood-opacity=".18"/></filter>
+                            </defs>
+                            <rect width="1200" height="700" fill="#f7f9fd"/>
+                            <rect width="1200" height="700" fill="url(#grid)" opacity=".72"/>
+                            <g id="road-layer"></g>
+                            <g id="route-layer"></g>
+                            <g id="location-layer"></g>
+                            <g id="rider-layer"></g>
+                            <g id="delivery-layer"></g>
+                        </svg>
+                        <div class="map-loading" id="map-loading"><span></span><p>Loading Nexa City network</p></div>
+                        <div class="map-legend">
+                            <span><i class="legend-line low"></i>Low traffic</span>
+                            <span><i class="legend-line medium"></i>Medium</span>
+                            <span><i class="legend-line high"></i>High</span>
+                            <span><i class="legend-rider"></i>Available rider</span>
+                            <span><i class="legend-delivery"></i>Active delivery</span>
+                        </div>
+                        <div class="map-metric"><strong id="location-count">15</strong><span>Connected places</span></div>
+                        <div class="delivery-map-status" id="delivery-map-status" hidden>
+                            <span class="delivery-status-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h6l2-8h4l3 5M9 9h5l-2 8"/></svg></span>
+                            <div><span id="delivery-map-tracking">NX parcel</span><strong id="delivery-map-phase">Rider assigned</strong><small id="delivery-map-detail">Preparing pickup</small></div>
+                            <i id="delivery-map-progress"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="booking-card">
+                    <div class="card-header">
+                        <div>
+                            <p class="eyebrow">Quick action</p>
+                            <h2>Plan a delivery</h2>
+                        </div>
+                        <span class="mode-badge">Live service</span>
+                    </div>
+
+                    <form id="route-form">
+                        <div class="route-inputs">
+                            <span class="route-spine"><i></i><b></b><i></i></span>
+                            <label>
+                                <span>Pickup location</span>
+                                <input id="pickup-select" list="location-options" placeholder="Type or select a saved location" autocomplete="off" required>
+                            </label>
+                            <label>
+                                <span>Delivery location</span>
+                                <input id="destination-select" list="location-options" placeholder="Type or select a saved location" autocomplete="off" required>
+                            </label>
+                            <datalist id="location-options"></datalist>
+                        </div>
+
+                        <div class="form-row">
+                            <label><span>Parcel priority</span><select id="priority-select"><option>Standard</option><option>Same Day</option><option>Express</option></select></label>
+                            <label><span>Weight</span><div class="input-with-unit"><input id="weight-input" type="number" min="0.1" max="30" step="0.1" placeholder="Enter weight" required><small>kg</small></div></label>
+                        </div>
+
+                        <div class="assignment-label"><span>Assignment style</span><button type="button" title="Choose how a rider is assigned">?</button></div>
+                        <div class="assignment-options">
+                            <label class="choice-card selected"><input type="radio" name="mode" value="quick" checked><span class="choice-icon"><svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg></span><span><strong>Quick Assign</strong><small>Nearest available rider</small></span><i></i></label>
+                            <label class="choice-card"><input type="radio" name="mode" value="offers"><span class="choice-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 10h8m-6 4h4"/></svg></span><span><strong>Rider Offers</strong><small>Compare price offers</small></span><i></i></label>
+                        </div>
+
+                        <button class="route-button" type="submit">
+                            <span>Compare route options</span>
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                        </button>
+                    </form>
+
+                    <div class="route-results" id="route-results" hidden>
+                        <div class="route-result-heading"><span>Route comparison</span><small>Live network estimate</small></div>
+                        <button class="route-option selected" type="button" data-route-mode="minimumDistance">
+                            <span class="route-option-icon distance"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></span>
+                            <span><strong>Minimum Distance</strong><small id="distance-path">Waiting for route</small></span>
+                            <span class="route-option-metric"><strong id="distance-km">0 km</strong><small id="distance-stops">0 stops</small></span>
+                        </button>
+                        <button class="route-option" type="button" data-route-mode="minimumStops">
+                            <span class="route-option-icon stops"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 12h4c4 0 4-6 6-6m-6 6c4 0 4 6 6 6"/></svg></span>
+                            <span><strong>Minimum Stops</strong><small id="stops-path">Waiting for route</small></span>
+                            <span class="route-option-metric"><strong id="stops-count">0 stops</strong><small id="stops-km">0 km</small></span>
+                        </button>
+                        <button class="book-route-button" id="book-route-button" type="button"><span>Book this delivery</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+                    </div>
+
+                    <div class="foundation-note" id="foundation-note">
+                        <span><svg viewBox="0 0 24 24"><path d="M12 3 3.5 7.5v9L12 21l8.5-4.5v-9z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+                        <div><strong>Smart delivery planning</strong><p>Compare a shorter journey with a route containing fewer stops.</p></div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="bottom-grid">
+                <article class="activity-card">
+                    <div class="card-header"><div><p class="eyebrow">Your delivery journey</p><h2>Simple from booking to delivery</h2></div><span class="progress-label">Automatic</span></div>
+                    <div class="timeline">
+                        <div class="timeline-item complete"><span><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span><div><strong>Choose pickup and destination</strong><p>View route choices, travel time, and expected fare</p></div><time>Step 1</time></div>
+                        <div class="timeline-item complete"><span><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span><div><strong>Select your rider</strong><p>Use quick matching or compare rider price offers</p></div><time>Step 2</time></div>
+                        <div class="timeline-item complete"><span><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></span><div><strong>Watch automatic delivery</strong><p>See pickup and parcel movement update on the map</p></div><time>Step 3</time></div>
+                    </div>
+                </article>
+                <article class="network-card">
+                    <div class="network-score"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="49"/><circle class="score-ring" cx="60" cy="60" r="49"/></svg><div><strong>100%</strong><span>Connected</span></div></div>
+                    <div><p class="eyebrow">Service coverage</p><h2>Nexa City is connected</h2><p>Parcel service is available across every listed neighborhood and major destination.</p><div class="network-tags"><span>15 locations</span><span>32 roads</span><span>Local service</span></div></div>
+                </article>
+            </section>
+        </main>
+
+        <main class="main-content role-panel" id="rider-panel" hidden>
+            <header class="topbar">
+                <div><p class="eyebrow">Rider workspace</p><h1>Manage your rider account</h1></div>
+                <div class="topbar-actions">
+                    <div class="date-chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18"/></svg><span class="shared-date">Today</span></div>
+                    <button class="icon-button notification-trigger" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span class="notification-count" data-notification-count hidden>0</span></button>
+                    <button class="primary-button danger-soft" id="rider-logout-button"><svg viewBox="0 0 24 24"><path d="M10 4H5v16h5m4-4 4-4-4-4m4 4H9"/></svg>Sign out</button>
+                </div>
+            </header>
+
+            <section class="stats-grid" aria-label="Rider statistics">
+                <article class="stat-card stat-blue"><div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M7 17h5l2-7h4l2 4M9 10h5l-2 7"/></svg></div><div><p>Signed-in account</p><strong id="rider-selected-id">Rider</strong><span id="rider-selected-name">Secure profile</span></div></article>
+                <article class="stat-card stat-green"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 15h3l2-5 4 9 2-6h5"/><circle cx="12" cy="12" r="9"/></svg></div><div><p>Availability</p><strong id="rider-panel-status">Offline</strong><span id="rider-panel-job">No active assignment</span></div></article>
+                <article class="stat-card stat-amber"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 9h8m-8 3h8m-8 3h5"/></svg></div><div><p>Total earnings</p><strong id="rider-panel-earnings">Rs. 0</strong><span>78% rider share</span></div></article>
+                <article class="stat-card stat-violet"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m5 16v-7m5 7V7"/></svg></div><div><p>Deliveries</p><strong id="rider-panel-completed">0</strong><span id="rider-panel-rating">Rating unavailable</span></div></article>
+            </section>
+
+            <section class="role-workspace-grid rider-workspace">
+                <article class="role-card rider-account-card">
+                    <div class="card-header"><div><p class="eyebrow">Rider account</p><h2>Profile and pricing</h2></div><span class="mode-badge">Rider panel</span></div>
+                    <div class="role-card-body">
+                        <form id="rider-profile-form">
+                            <div class="profile-identity"><span class="rider-avatar" id="rider-profile-avatar">AR</span><div><strong id="rider-profile-name">Rider name</strong><small id="rider-profile-vehicle">Vehicle and registration</small></div><span class="availability-pill" id="rider-profile-pill">Available</span></div>
+                            <div class="modal-form-grid">
+                                <label><span>Availability</span><select id="rider-availability"><option value="1">Available for jobs</option><option value="0">Offline</option></select></label>
+                                <label><span>Current location</span><select id="rider-current-location" required><option value="">Choose current location</option></select></label>
+                                <label><span>Base charge</span><div class="input-with-unit"><input id="rider-base-charge" type="number" min="0" max="2000" required><small>Rs.</small></div></label>
+                                <label><span>Per kilometre</span><div class="input-with-unit"><input id="rider-per-km-charge" type="number" min="1" max="500" required><small>Rs.</small></div></label>
+                            </div>
+                            <button class="modal-primary compact" type="submit"><span>Save rider settings</span><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></button>
+                        </form>
+                    </div>
+                </article>
+
+                <article class="role-card rider-job-card" id="rider-jobs-section">
+                    <div class="card-header"><div><p class="eyebrow">Current assignment</p><h2>Active delivery</h2></div><span class="live-pill"><i></i>Live</span></div>
+                    <div class="role-card-body" id="rider-active-job"><div class="rider-profile-empty"><span>✓</span><strong>No active delivery</strong><p>Your next assigned parcel will appear here.</p></div></div>
+                </article>
+            </section>
+        </main>
+
+        <main class="main-content role-panel" id="admin-panel" hidden>
+            <header class="topbar">
+                <div><p class="eyebrow">Administration</p><h1>Nexa City operations center</h1></div>
+                <div class="topbar-actions">
+                    <div class="date-chip"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18"/></svg><span class="shared-date">Today</span></div>
+                    <button class="icon-button notification-trigger" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span class="notification-count" data-notification-count hidden>0</span></button>
+                    <button class="secondary-button topbar-signout" id="admin-logout-button">Sign out</button>
+                    <button class="primary-button" id="admin-open-road-control"><svg viewBox="0 0 24 24"><path d="M7 3 4 21m13-18 3 18M12 5v3m0 4v3m0 4v2"/></svg>Manage roads</button>
+                </div>
+            </header>
+
+            <section class="stats-grid" aria-label="Administration statistics">
+                <article class="stat-card stat-blue"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/></svg></div><div><p>Total bookings</p><strong id="admin-total-bookings">0</strong><span id="admin-booking-summary">No records yet</span></div></article>
+                <article class="stat-card stat-green"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 15h3l2-5 4 9 2-6h5"/><circle cx="12" cy="12" r="9"/></svg></div><div><p>Active deliveries</p><strong id="admin-active-deliveries">0</strong><span>Automatically progressing</span></div></article>
+                <article class="stat-card stat-amber"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 9h8m-8 3h8m-8 3h5"/></svg></div><div><p>Gross revenue</p><strong id="admin-revenue">Rs. 0</strong><span>Completed bookings</span></div></article>
+                <article class="stat-card stat-violet"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10m5 10V4m5 16v-7m5 7V7"/></svg></div><div><p>Platform profit</p><strong id="admin-profit">Rs. 0</strong><span>After rider payouts</span></div></article>
+            </section>
+
+            <section class="role-workspace-grid admin-workspace">
+                <article class="role-card add-road-card">
+                    <div class="card-header"><div><p class="eyebrow">Network expansion</p><h2>Connect saved locations</h2></div><span class="mode-badge">Admin only</span></div>
+                    <form class="role-card-body" id="admin-add-road-form">
+                        <div class="modal-form-grid">
+                            <label><span>Route name</span><input id="admin-road-name" maxlength="60" placeholder="Canal Express Link" required></label>
+                            <label><span>Traffic level</span><select id="admin-road-traffic"><option>Low</option><option>Medium</option><option>High</option></select></label>
+                            <label><span>From location</span><select id="admin-road-from" required></select></label>
+                            <label><span>To location</span><select id="admin-road-to" required></select></label>
+                            <label><span>Distance</span><div class="input-with-unit"><input id="admin-road-distance" type="number" min="0.1" max="100" step="0.1" required><small>km</small></div></label>
+                            <label><span>Base travel time</span><div class="input-with-unit"><input id="admin-road-time" type="number" min="1" max="180" required><small>min</small></div></label>
+                        </div>
+                        <button class="modal-primary" type="submit"><span>Add road to network</span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+                    </form>
+                </article>
+
+                <article class="role-card add-location-card">
+                    <div class="card-header"><div><p class="eyebrow">New destination</p><h2>Create and connect a location</h2></div><span class="mode-badge">Named route</span></div>
+                    <form class="role-card-body" id="admin-add-location-form">
+                        <div class="modal-form-grid">
+                            <label><span>Destination name</span><input id="admin-location-name" maxlength="60" placeholder="Green Valley Depot" required></label>
+                            <label><span>Location type</span><input id="admin-location-type" maxlength="30" placeholder="Depot" required></label>
+                            <label><span>Connect from</span><select id="admin-location-anchor" required></select></label>
+                            <label><span>Connecting route name</span><input id="admin-location-route-name" maxlength="60" placeholder="Green Valley Road" required></label>
+                            <label><span>Distance</span><div class="input-with-unit"><input id="admin-location-distance" type="number" min="0.1" max="100" step="0.1" required><small>km</small></div></label>
+                            <label><span>Base travel time</span><div class="input-with-unit"><input id="admin-location-time" type="number" min="1" max="180" required><small>min</small></div></label>
+                            <label><span>Traffic level</span><select id="admin-location-traffic"><option>Low</option><option>Medium</option><option>High</option></select></label>
+                        </div>
+                        <button class="modal-primary" type="submit"><span>Create destination and route</span><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+                    </form>
+                </article>
+
+                <article class="role-card admin-actions-card">
+                    <div class="card-header"><div><p class="eyebrow">Operations</p><h2>Management tools</h2></div></div>
+                    <div class="role-card-body admin-action-list">
+                        <button type="button" data-admin-action="roads"><span class="action-icon blue">R</span><div><strong>Road and traffic control</strong><small>Block roads, change traffic, or undo changes</small></div><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                        <button type="button" data-admin-action="riders"><span class="action-icon green">F</span><div><strong>Fleet directory</strong><small>Review rider profiles and availability</small></div><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                        <button type="button" data-admin-action="history"><span class="action-icon amber">H</span><div><strong>Delivery history</strong><small>Search completed and active booking records</small></div><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                        <button type="button" data-admin-action="reports"><span class="action-icon violet">P</span><div><strong>Profit and performance</strong><small>View revenue, payouts, profit, and delivery status</small></div><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                    </div>
+                </article>
+
+                <article class="role-card admin-profit-card">
+                    <div class="card-header"><div><p class="eyebrow">Financial overview</p><h2>Revenue distribution</h2></div><span class="progress-label">Live</span></div>
+                    <div class="role-card-body">
+                        <div class="profit-visual"><div class="profit-ring" id="profit-ring"><strong id="profit-ring-value">0%</strong><span>profit share</span></div><div class="profit-legend"><div><i class="revenue"></i><span>Gross revenue</span><strong id="profit-gross">Rs. 0</strong></div><div><i class="payout"></i><span>Rider payouts</span><strong id="profit-payout">Rs. 0</strong></div><div><i class="profit"></i><span>Platform profit</span><strong id="profit-net">Rs. 0</strong></div></div></div>
+                    </div>
+                </article>
+
+                <article class="role-card admin-recent-card">
+                    <div class="card-header"><div><p class="eyebrow">Latest activity</p><h2>Recent bookings</h2></div><button class="text-button" id="view-all-history" type="button">View all</button></div>
+                    <div class="role-card-body compact-list" id="admin-recent-bookings"><div class="rider-profile-empty"><span>↗</span><strong>No booking activity</strong><p>New parcel requests will appear here.</p></div></div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal auth-modal" id="access-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close account access"></button>
+        <section class="modal-panel auth-dialog" role="dialog" aria-modal="true" aria-labelledby="access-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow" id="access-modal-eyebrow">Secure workspace</p><h2 id="access-modal-title">Rider access</h2></div>
+                <button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            </header>
+
+            <div class="auth-choice" id="rider-auth-choice">
+                <p>Choose how you want to continue. Rider profiles are private and require a password.</p>
+                <button type="button" data-auth-view="rider-login"><span class="auth-choice-icon">↗</span><span><strong>Login to profile</strong><small>I already have a rider ID and password</small></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                <button type="button" data-auth-view="rider-register"><span class="auth-choice-icon green">+</span><span><strong>Register as a rider</strong><small>Create a rider profile and login</small></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+
+            <form class="auth-form" id="rider-login-form" hidden>
+                <button class="auth-back" type="button" data-auth-view="rider-choice">← Back to rider options</button>
+                <div class="auth-form-copy"><span class="auth-lock">R</span><div><strong>Welcome back</strong><p>Enter the rider ID shown on your profile and your password.</p></div></div>
+                <label><span>Rider ID</span><input id="rider-login-id" maxlength="20" placeholder="Enter your rider ID" autocomplete="username" required></label>
+                <label><span>Password</span><input id="rider-login-password" type="password" maxlength="72" placeholder="Enter your password" autocomplete="current-password" required></label>
+                <button class="modal-primary" type="submit"><span>Login to rider profile</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+                <p class="auth-hint">Use the credentials provided with your project setup.</p>
+            </form>
+
+            <form class="auth-form" id="rider-registration-form" hidden>
+                <button class="auth-back" type="button" data-auth-view="rider-choice">← Back to rider options</button>
+                <div class="modal-form-grid">
+                    <label><span>Full name</span><input id="new-rider-name" maxlength="50" placeholder="Enter rider name" required></label>
+                    <label><span>Phone number</span><input id="new-rider-phone" maxlength="18" placeholder="03XX-XXXXXXX" required></label>
+                    <label><span>Vehicle type</span><select id="new-rider-vehicle" required><option value="">Choose vehicle</option><option>Bike</option><option>Car</option><option>Van</option><option>Pickup</option></select></label>
+                    <label><span>Registration number</span><input id="new-rider-registration" maxlength="20" placeholder="Enter registration number" required></label>
+                    <label class="full"><span>Starting location</span><select id="new-rider-location" required><option value="">Choose location</option></select></label>
+                    <label><span>Base charge</span><div class="input-with-unit"><input id="new-rider-base" type="number" min="0" max="2000" placeholder="Enter charge" required><small>Rs.</small></div></label>
+                    <label><span>Per kilometre</span><div class="input-with-unit"><input id="new-rider-per-km" type="number" min="1" max="500" placeholder="Enter rate" required><small>Rs.</small></div></label>
+                    <label class="full"><span>Create password</span><input id="new-rider-password" type="password" minlength="8" maxlength="72" placeholder="Uppercase, lowercase, number, and symbol" autocomplete="new-password" required></label>
+                </div>
+                <button class="modal-primary" type="submit"><span>Create rider account</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+            </form>
+
+            <form class="auth-form" id="admin-login-form" hidden>
+                <div class="auth-form-copy"><span class="auth-lock admin">A</span><div><strong>Administrator login</strong><p>Operations, reports, and network changes require authorization.</p></div></div>
+                <label><span>Username</span><input id="admin-login-username" placeholder="Enter admin username" maxlength="40" autocomplete="username" required></label>
+                <label><span>Password</span><input id="admin-login-password" type="password" maxlength="72" placeholder="Enter admin password" autocomplete="current-password" required></label>
+                <button class="modal-primary" type="submit"><span>Open admin workspace</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+                <p class="auth-hint">Administrator credentials are kept outside the public interface.</p>
+            </form>
+        </section>
+    </div>
+
+    <div class="modal" id="booking-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close booking dialog"></button>
+        <section class="modal-panel booking-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow">Parcel request</p><h2 id="booking-modal-title">Complete your booking</h2></div>
+                <button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            </header>
+
+            <div id="booking-details-view">
+                <div class="modal-route-summary">
+                    <div><span>Pickup</span><strong id="modal-pickup">Pickup location</strong></div>
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                    <div><span>Destination</span><strong id="modal-destination">Delivery location</strong></div>
+                    <div class="modal-route-metric"><strong id="modal-distance">Calculated distance</strong><span id="modal-route-time">Calculated time</span></div>
+                </div>
+                <form id="booking-details-form">
+                    <div class="modal-form-grid">
+                        <label><span>Customer name</span><input id="customer-name" maxlength="50" placeholder="Enter your full name" required></label>
+                        <label><span>Receiver name</span><input id="receiver-name" maxlength="50" placeholder="Enter receiver name" required></label>
+                        <label class="full"><span>Receiver phone</span><input id="receiver-phone" maxlength="18" placeholder="03XX-XXXXXXX" required></label>
+                    </div>
+                    <div class="fare-preview">
+                        <span class="fare-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 9h8m-8 3h8m-8 3h5"/></svg></span>
+                        <div><span>Estimated fare</span><strong id="estimated-fare-preview">Calculated at confirmation</strong></div>
+                        <small>Final price appears after confirmation</small>
+                    </div>
+                    <button class="modal-primary" type="submit"><span>Confirm parcel booking</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+                </form>
+            </div>
+
+            <div id="offer-selection-view" hidden>
+                <div class="selection-intro"><span><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 10h8m-6 4h4"/></svg></span><div><strong>Rider offers received</strong><p>Select an offer based on price, rating, and pickup distance.</p></div></div>
+                <div class="offer-list" id="offer-list"></div>
+            </div>
+
+            <div id="booking-confirmation-view" hidden>
+                <div class="success-mark"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"/><path d="m19 32 9 9 18-20"/></svg></div>
+                <p class="eyebrow">Booking confirmed</p>
+                <h2>Your rider is assigned</h2>
+                <p class="confirmation-copy">Keep the tracking ID to follow the parcel throughout its journey.</p>
+                <button class="tracking-id-card" id="copy-tracking-button" type="button"><span>Tracking ID</span><strong id="confirmed-tracking-id">NX-00000000-0000</strong><small>Click to copy</small></button>
+                <div class="assigned-rider-card"><span class="rider-avatar" id="confirmed-rider-avatar">R</span><div><span>Assigned rider</span><strong id="confirmed-rider-name">Awaiting assignment</strong><small id="confirmed-rider-detail">Rider details appear after matching</small></div><div class="confirmed-fare"><span>Fare</span><strong id="confirmed-fare">Rs. 0</strong></div></div>
+                <button class="modal-primary" id="open-tracking-button" type="button"><span>Open live tracking</span><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal" id="tracking-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close tracking dialog"></button>
+        <section class="modal-panel tracking-dialog" role="dialog" aria-modal="true" aria-labelledby="tracking-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow">Parcel tracking</p><h2 id="tracking-modal-title">Track a delivery</h2></div>
+                <button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            </header>
+            <form class="tracking-search" id="tracking-search-form"><input id="tracking-id-input" placeholder="Enter NX tracking ID" required><button type="submit">Track parcel</button></form>
+            <div class="tracking-empty" id="tracking-empty"><span><svg viewBox="0 0 24 24"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5zM4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span><strong>Enter a tracking ID</strong><p>Your latest parcel status and journey will appear here.</p></div>
+            <div class="tracking-result" id="tracking-result" hidden>
+                <div class="tracking-summary-row"><div><span class="status-chip" id="tracking-status">Waiting for tracking</span><h3 id="tracking-route-title">Delivery route</h3><p id="tracking-recipient">Receiver details</p></div><div class="tracking-fare"><span>Accepted fare</span><strong id="tracking-fare">Rs. 0</strong></div></div>
+                <div class="tracking-rider" id="tracking-rider"><span class="rider-avatar">R</span><div><span>Delivery rider</span><strong>Assigned rider</strong><small>Vehicle details</small></div></div>
+                <div class="delivery-rating-card" id="delivery-rating-card" hidden>
+                    <div><span>Customer feedback</span><strong>Rate this completed delivery</strong><small>Your rating updates the rider's real average.</small></div>
+                    <form id="delivery-rating-form">
+                        <select id="delivery-rating-select" required>
+                            <option value="">Choose rating</option>
+                            <option value="5">5 — Excellent</option>
+                            <option value="4">4 — Very good</option>
+                            <option value="3">3 — Good</option>
+                            <option value="2">2 — Fair</option>
+                            <option value="1">1 — Poor</option>
+                        </select>
+                        <button type="submit">Submit rating</button>
+                    </form>
+                    <p id="delivery-rating-complete" hidden></p>
+                </div>
+                <div class="status-timeline" id="status-timeline"></div>
+                <div class="tracking-actions automatic"><button class="secondary-danger" id="cancel-booking-button" type="button">Cancel booking</button><div class="automatic-delivery-note" id="automatic-delivery-note"><span></span><div><strong>Automatic delivery is active</strong><small id="automatic-status-countdown">Status updates automatically</small></div></div></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal" id="road-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close road-control dialog"></button>
+        <section class="modal-panel road-dialog" role="dialog" aria-modal="true" aria-labelledby="road-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow">Admin network controls</p><h2 id="road-modal-title">Road and traffic control</h2></div>
+                <button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            </header>
+            <div class="road-control-content">
+                <label><span>Select city road</span><select id="road-select"></select></label>
+                <div class="selected-road-card"><span class="road-symbol"><svg viewBox="0 0 24 24"><path d="M7 3 4 21m13-18 3 18M12 5v3m0 4v3m0 4v2"/></svg></span><div><span id="selected-road-id">R01</span><strong id="selected-road-name">Central Hub to University Square</strong><small id="selected-road-metric">4 km · Medium traffic</small></div><span class="road-state" id="selected-road-state">Open</span></div>
+                <div class="road-action-grid">
+                    <button class="road-action block" id="toggle-road-button" type="button"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg><span><strong>Block road</strong><small>Remove it from active route planning</small></span></button>
+                    <label class="traffic-control"><span>Traffic level</span><select id="traffic-select"><option>Low</option><option>Medium</option><option>High</option></select></label>
+                </div>
+                <div class="admin-safety-note"><span><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM9 9h6m-6 3h6m-6 3h4"/></svg></span><div><strong>Safe change history</strong><p>Undo restores the previous road availability and traffic settings.</p></div></div>
+                <div class="road-footer-actions"><button class="secondary-button" id="undo-road-button" type="button">Undo last change</button><button class="modal-primary compact" id="apply-traffic-button" type="button"><span>Apply traffic level</span><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></button></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal" id="operations-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close operations dialog"></button>
+        <section class="modal-panel operations-dialog" role="dialog" aria-modal="true" aria-labelledby="operations-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow" id="operations-eyebrow">Network management</p><h2 id="operations-modal-title">Operations</h2></div>
+                <button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+            </header>
+            <div class="operations-content" id="operations-content">
+                <div class="operations-loading"><span></span><p>Loading live service data</p></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="modal notification-modal" id="notification-modal" hidden>
+        <button class="modal-backdrop" type="button" data-close-modal aria-label="Close notifications"></button>
+        <section class="modal-panel notification-dialog" role="dialog" aria-modal="true" aria-labelledby="notification-modal-title">
+            <header class="modal-header">
+                <div><p class="eyebrow">Updates</p><h2 id="notification-modal-title">Notification center</h2></div>
+                <div class="notification-header-actions"><button class="text-button" id="mark-notifications-read" type="button">Mark all read</button><button class="modal-close" type="button" data-close-modal aria-label="Close"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+            </header>
+            <div class="notification-list" id="notification-list">
+                <div class="notification-empty"><span><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></span><strong>No notifications yet</strong><p>Booking and delivery updates will appear here.</p></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"><span></span><div><strong id="toast-title">Connected</strong><p id="toast-message">The delivery service is responding.</p></div></div>
+    <script src="app.js"></script>
+</body>
+</html>

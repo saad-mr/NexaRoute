@@ -1,0 +1,16 @@
+id,name,type,x,y
+0,Central Courier Hub,Hub,600,350
+1,University Square,Education,390,210
+2,General Hospital,Health,650,160
+3,City Mall,Commercial,830,260
+4,Railway Station,Transport,340,380
+5,Airport Terminal,Transport,1040,170
+6,Technology Park,Business,840,100
+7,Industrial Zone,Industrial,1050,450
+8,Green Market,Commercial,500,500
+9,Old Town,Residential,250,550
+10,Lake View,Residential,760,570
+11,North Residential Area,Residential,520,80
+12,South Residential Area,Residential,650,650
+13,Bus Terminal,Transport,170,300
+14,Parcel Warehouse,Warehouse,930,600

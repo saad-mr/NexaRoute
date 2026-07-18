@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\AnalyticsService.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\DeliverySystem.cpp"><Filter>Source Files</Filter></ClCompile>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A0B2D28B-0CE8-487E-8BFC-A0A4498AD943}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1D51595E-27DA-41A4-A40D-B6843DC8C85D}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx</Extensions>
+    </Filter>
+    <Filter Include="Frontend">
+      <UniqueIdentifier>{D6834D9A-F204-41FB-9015-B5FAEE88E8A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{59D93E9C-1C88-4AF9-9DB7-88BAAA6E0C31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{E409D741-9824-41C6-B176-C7D67618E986}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AnalyticsService.h"><Filter>Header Files</Filter></ClInclude>
+    <ClCompile Include="src\AuthService.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\Graph.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\main.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\LocalServer.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\RouteEngine.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\NetworkManager.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\Security.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\Validation.cpp"><Filter>Source Files</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\AVLTree.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\AuthService.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\BinarySearch.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\CircularQueue.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\DeliverySystem.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\DoublyLinkedList.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\DynamicArray.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\Graph.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\HashTable.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\LocalServer.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\MinHeap.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\NetworkManager.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\Queue.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\RouteEngine.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\SinglyLinkedList.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\Stack.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\Security.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\Validation.h"><Filter>Header Files</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\frontend\index.html"><Filter>Frontend</Filter></None>
+    <None Include="..\frontend\style.css"><Filter>Frontend</Filter></None>
+    <None Include="..\frontend\app.js"><Filter>Frontend</Filter></None>
+    <None Include="..\data\locations.csv"><Filter>Data</Filter></None>
+    <None Include="..\data\roads.csv"><Filter>Data</Filter></None>
+    <None Include="..\data\riders.csv"><Filter>Data</Filter></None>
+    <None Include="..\README.md"><Filter>Documentation</Filter></None>
+    <None Include="..\START_HERE.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_01_BLUEPRINT.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_02_VISUAL_STUDIO_FOUNDATION.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_03_ROUTE_ENGINE.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_04_DELIVERY_SYSTEM.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_05_INTERFACE_AND_ADMIN.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\STEP_06_TESTING_AND_SETUP.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\LANGUAGE_REPORT.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\VIVA_GUIDE.md"><Filter>Documentation</Filter></None>
+    <None Include="..\docs\VSCODE_WINDOWS_SETUP.md"><Filter>Documentation</Filter></None>
+  </ItemGroup>
+</Project>
